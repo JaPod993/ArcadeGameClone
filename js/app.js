@@ -51,6 +51,13 @@ Player.prototype.render = function () {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+//reset player position after reaching water
+Player.prototype.update = function(dt) {
+  if (this.y <=0) {
+      this.reset(202, 415);
+  }
+};
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
