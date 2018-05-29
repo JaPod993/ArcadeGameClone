@@ -2,7 +2,7 @@
 var Enemy = function(x,y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-    
+
     //coordinated parameters created
     this.x = x;
     this.y = y;
@@ -21,6 +21,13 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
+    //reseting enemy position
+    if (this.x < 500) {
+        this.x += (dt) * this.speed;
+    } else {
+        this.x = -200;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
