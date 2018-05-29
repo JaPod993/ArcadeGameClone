@@ -46,6 +46,10 @@ var Player = function(x, y) {
   this.sprite = 'images/char-princess-girl.png';
 };
 
+//Draw the player on the screen
+Player.prototype.render = function () {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
