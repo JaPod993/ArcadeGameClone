@@ -54,7 +54,7 @@ var Player = function(x, y) {
 //reset player position after reaching water
 Player.prototype.update = function(dt) {
   if (this.y <= 0) {
-      this.reset(202, 415);
+      this.reset(202, 581);
   }
 };
 
@@ -74,7 +74,7 @@ Player.prototype.handleInput = function (direction) {
     if(direction === 'up' && this.y > 0){
         this.y -= 83;
     }
-    if(direction === 'down' && this.y < 400){
+    if(direction === 'down' && this.y < 566){
         this.y += 83;
     }
 };
@@ -82,13 +82,15 @@ Player.prototype.handleInput = function (direction) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [
-    new Enemy(-200, 83, 150),
-    new Enemy(-200, 166, 230),
-    new Enemy(-200, 249, 270),
+    new Enemy(-200, 83, 340),
+    new Enemy(-200, 166, 300),
+    new Enemy(-200, 249, 170),
+    new Enemy(-200, 332, 250),
+    new Enemy(-200, 415, 250),
 ];
 
 // Place the player object in a variable called player
-var player = new Player(202, 415);
+var player = new Player(202, 581);
 
 // Reset's player postion after collison with enemies
 Player.prototype.reset = function(x, y) {
@@ -103,7 +105,7 @@ function checkCollisions(allEnemies, player) {
             allEnemies[i].x + allEnemies[i].width > player.x &&
             allEnemies[i].y < player.y + player.height &&
             allEnemies[i].height + allEnemies[i].y > player.y) {
-            player.reset(202, 415);
+            player.reset(202, 581);
         }
     }
 }
