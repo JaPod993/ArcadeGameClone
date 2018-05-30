@@ -92,13 +92,13 @@ var allEnemies = [
 // Place the player object in a variable called player
 var player = new Player(202, 581);
 
-// Reset's player postion after collison with enemies
+// reseting players position after collision with enemy
 Player.prototype.reset = function(x, y) {
     this.x = x;
     this.y = y;
 };
 
-// Checks collisions using Axis-Aligned 2D Collision Detection
+//2D axis aligned collision detection
 function checkCollisions(allEnemies, player) {
     for (var i = 0; i < allEnemies.length; i++) {
         if (allEnemies[i].x < player.x + player.width &&
