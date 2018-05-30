@@ -10,6 +10,10 @@ var Enemy = function(x,y, speed) {
     //parameter for enemy speed
     this.speed = speed;
 
+    //enemy size
+    this.width = 80;
+    this.height = 50;
+
       // The image/sprite for our enemies, this uses
      // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -57,6 +61,7 @@ Player.prototype.update = function(dt) {
       this.reset(202, 415);
   }
 };
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
