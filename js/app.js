@@ -74,7 +74,7 @@ Player.prototype.handleInput = function (direction) {
     if(direction === 'up' && this.y > 0){
         this.y -= 83;
     }
-    if(direction === 'down' && this.y > 400){
+    if(direction === 'down' && this.y < 400){
         this.y += 83;
     }
 };
