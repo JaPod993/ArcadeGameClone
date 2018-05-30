@@ -55,25 +55,39 @@ Player.prototype.render = function () {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-//reset player position after reaching water
-Player.prototype.update = function(dt) {
-  if (this.y <=0) {
-      this.reset(202, 415);
-  }
+//player movement function, after pressing key we update player position by width or height of the game square
+Player.prototype.handleInput = function (direction) {
+    if(direction === 'left' && this.x > 0){
+        this.x -= 101;
+    }
+    if(direction === 'right' && this.x < 400){
+        this.x += 101;
+    }
+    if(direction === 'up' && this.y > 0){
+        this.x -= 83;
+    }
+    if(direction === 'down' && this.y > 400){
+        this.x += 83;
+    }
 };
-
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
 const allEnemies = [
     new Enemy(-200, 83, 150),
     new Enemy(-200, 166, 230),
     new Enemy(-200, 249, 270),
 ];
 
+// Place the player object in a variable called player
 const player = new Player(202, 415);
 
+//reset player position after reaching water
+Player.prototype.update = function(dt) {
+  if (this.y <=0) {
+      this.reset(202, 415);
+  }
+};
 
 
 // This listens for key presses and sends the keys to your
