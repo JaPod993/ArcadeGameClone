@@ -85,8 +85,9 @@ var allEnemies = [
     new Enemy(-200, 83, 340),
     new Enemy(-200, 166, 300),
     new Enemy(-200, 249, 170),
+    new Enemy(-200, 249, 320),
     new Enemy(-200, 332, 250),
-    new Enemy(-200, 415, 250),
+    new Enemy(-200, 415, 150)
 ];
 
 // Place the player object in a variable called player
