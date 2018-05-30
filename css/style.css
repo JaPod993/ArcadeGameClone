@@ -1,3 +1,24 @@
 body {
     text-align: center;
+    font-family: 'Concert One', cursive;
+    color: #7a59e4;
+    background-color: #ef8b3f;
+}
+
+.game-title {
+    margin: 50px 0 0 0;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+.instructions {
+    margin: 10px 0 0 0;
+    font-size: 20px;
+    color: white;
+}
+
+.logo {
+    height: 30px;
+    display: block;
+    margin: 0 auto;
 }
