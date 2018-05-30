@@ -1,5 +1,6 @@
 // Enemies our player must avoid
-const Enemy = function(x,y, speed) {
+var Enemy = function(x, y, speed) {
+
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -7,15 +8,15 @@ const Enemy = function(x,y, speed) {
     this.x = x;
     this.y = y;
 
-    //parameter for enemy speed
-    this.speed = speed;
-
     //enemy size
     this.width = 80;
     this.height = 50;
 
-      // The image/sprite for our enemies, this uses
-     // a helper we've provided to easily load images
+    //parameter for enemy speed
+    this.speed = speed;
+
+    // The image/sprite for our enemies, this uses
+    // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -42,12 +43,19 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-const Player = function(x, y) {
-  this.x =x;
-  this.y =y;
+var Player = function(x, y) {
+  this.x = x;
+  this.y = y;
   this.width = 50;
   this.height = 75;
   this.sprite = 'images/char-princess-girl.png';
+};
+
+//reset player position after reaching water
+Player.prototype.update = function(dt) {
+  if (this.y <= 0) {
+      this.reset(202, 415);
+  }
 };
 
 //Draw the player on the screen
@@ -64,36 +72,49 @@ Player.prototype.handleInput = function (direction) {
         this.x += 101;
     }
     if(direction === 'up' && this.y > 0){
-        this.x -= 83;
+        this.y -= 83;
     }
     if(direction === 'down' && this.y > 400){
-        this.x += 83;
+        this.y += 83;
     }
 };
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-const allEnemies = [
+var allEnemies = [
     new Enemy(-200, 83, 150),
     new Enemy(-200, 166, 230),
     new Enemy(-200, 249, 270),
 ];
 
 // Place the player object in a variable called player
-const player = new Player(202, 415);
+var player = new Player(202, 415);
 
-//reset player position after reaching water
-Player.prototype.update = function(dt) {
-  if (this.y <=0) {
-      this.reset(202, 415);
-  }
+// Reset's player postion after collison with enemies
+Player.prototype.reset = function(x, y) {
+    this.x = x;
+    this.y = y;
 };
+
+// Checks collisions using Axis-Aligned 2D Collision Detection
+function checkCollisions(allEnemies, player) {
+    for (var i = 0; i < allEnemies.length; i++) {
+        if (allEnemies[i].x < player.x + player.width &&
+            allEnemies[i].x + allEnemies[i].width > player.x &&
+            allEnemies[i].y < player.y + player.height &&
+            allEnemies[i].height + allEnemies[i].y > player.y) {
+            player.reset(202, 415);
+        }
+    }
+}
+
+
 
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
-    const allowedKeys = {
+    var allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
