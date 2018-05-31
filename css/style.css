@@ -1,12 +1,12 @@
 body {
     text-align: center;
     font-family: 'Concert One', cursive;
-    color: #7a59e4;
-    background-color: #ef8b3f;
+    color: #4c419a;
+    background-color: #e26b10;
 }
 
 .game-title {
-    margin: 50px 0 0 0;
+    margin: 30px 0 0 0;
     font-size: 50px;
     text-transform: uppercase;
 }
@@ -18,6 +18,7 @@ body {
 }
 
 .logo {
+    padding-top: 15px;
     height: 30px;
     display: block;
     margin: 0 auto;
