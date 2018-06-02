@@ -3,6 +3,10 @@ My version of the classic arcade game Frogger!
 
 ### How to run
 
+* Play online here:
+https://japod993.github.io/ArcadeGameClone/
+
+or:
 * fork this repo
 * clone or download
 * open index.html
