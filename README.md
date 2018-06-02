@@ -1,5 +1,5 @@
 # REACH THE WATER
-# My version of the classic arcade game Frogger!
+My version of the classic arcade game Frogger!
 
 ### How to run
 
