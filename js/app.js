@@ -1,3 +1,8 @@
+//selecting modal for win condition
+var modal = document.getElementById("myModal");
+//selecting reset button
+var reset = document.getElementById("myBtn");
+
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
 
@@ -55,6 +60,11 @@ var Player = function(x, y) {
 Player.prototype.update = function(dt) {
   if (this.y <= 0) {
       this.reset(202, 581);
+      //win condition popup & game reset
+      modal.style.display = "block";
+      reset.addEventListener('click', function() {
+          modal.style.display = "none";
+      });
   }
 };
 
